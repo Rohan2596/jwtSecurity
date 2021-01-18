@@ -1,6 +1,6 @@
-package com.bridgelabz.codinclub.entity;
+package com.bridgelabz.codinclub.jwt.entity;
 
-import com.bridgelabz.codinclub.dto.AddUserDto;
+import com.bridgelabz.codinclub.jwt.dto.AddUserDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,18 +8,18 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 
-@Table
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
+@Entity
+@Table(name = "user")
 public class User {
 
     @Id
@@ -27,13 +27,17 @@ public class User {
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
     @Type(type = "uuid-char")
     private UUID id;
-    private String name;
+
+    @Column(name = "USERNAME")
+    private String username;
+    @Column(name = "EMAIL")
     private String email;
+    @Column(name = "PASSWORD")
     private String password;
     private LocalDateTime createdTimeStamp=LocalDateTime.now();
 
     public User(AddUserDto addUserDto) {
-        this.name=addUserDto.name;
+        this.username=addUserDto.name;
         this.email=addUserDto.email;
         this.password=addUserDto.password;
     }

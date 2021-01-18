@@ -1,4 +1,4 @@
-package com.bridgelabz.codinclub;
+package com.bridgelabz.codinclub.jwt;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

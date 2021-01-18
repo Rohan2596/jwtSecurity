@@ -1,4 +1,4 @@
-package com.bridgelabz.codinclub.dto;
+package com.bridgelabz.codinclub.jwt.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
